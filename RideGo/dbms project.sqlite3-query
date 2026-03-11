@@ -1,0 +1,7 @@
+-- database: c:\uber\uber.db
+
+SELECT * FROM drivers;
+INSERT INTO users (name, email) VALUES ("Koti", "koti@gmail.com");
+INSERT INTO drivers (name, vehicle) VALUES ("Ravi", "Swift");
+INSERT INTO trips (user_id, driver_id, source, destination)
+VALUES (1, 1, "Vijayawada", "Guntur");

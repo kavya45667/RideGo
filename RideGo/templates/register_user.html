@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign up | Your App Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #000000;
+      --primary-dark: #111111;
+      --accent: #276ef1;
+      --text: #030303;
+      --text-secondary: #6b7280;
+      --bg: #ffffff;
+      --border: #e5e7eb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+      color: white;
+      padding: 32px 24px 40px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      font-size: 15px;
+      opacity: 0.85;
+    }
+
+    .form-content {
+      padding: 32px 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #374151;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(39, 110, 241, 0.15);
+    }
+
+    .phone-group {
+      display: flex;
+      gap: 12px;
+    }
+
+    .phone-group select {
+      width: 110px;
+      padding: 14px 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 16px;
+      background: white;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-top: 12px;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .terms {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 24px;
+      line-height: 1.5;
+    }
+
+    .terms a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .terms a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        min-height: 100vh;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Get started</h1>
+    <p>Create your account in 30 seconds</p>
+  </div>
+
+  <div class="form-content">
+    <form action="/add_user" method="POST">
+
+      <div class="form-group">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" placeholder="John Doe" required autofocus>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Mobile number</label>
+        <div class="phone-group">
+          <select name="country_code">
+            <option value="+91" selected>India (+91)</option>
+            <option value="+1">USA (+1)</option>
+            <option value="+44">UK (+44)</option>
+            <option value="+971">UAE (+971)</option>
+            <option value="+65">Singapore (+65)</option>
+          </select>
+          <input type="tel" id="phone" name="phone" placeholder="98765 43210" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn">Continue</button>
+
+      <div class="terms">
+        By continuing, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+      </div>
+
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

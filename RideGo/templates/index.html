@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🚖 RideGo</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --yellow: #FFD700;       /* bright yellow for headings */
+      --yellow-dark: #E6C200;
+      --text: #f1f5f9;
+      --text-light: #94a3b8;
+      --blue: #3b82f6;
+      --blue-dark: #2563eb;
+      --card: #111111;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero {
+      flex: 1;
+      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+                  url('https://images.unsplash.com/photo-1503387762-592deb58caa5?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px 80px;
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .title {
+      font-size: clamp(3.2rem, 10vw, 6rem);
+      font-weight: 800;
+      color: var(--yellow);
+      margin-bottom: 1.2rem;
+      text-shadow: 0 4px 12px rgba(255, 215, 0, 0.35);
+      letter-spacing: -1px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 7vw, 3.8rem);
+      font-weight: 700;
+      color: var(--yellow);
+      margin-bottom: 1.2rem;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      font-size: clamp(1.1rem, 4vw, 1.35rem);
+      color: var(--text-light);
+      margin-bottom: 3rem;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: block;
+      padding: 18px 36px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      color: white;
+      background: var(--blue);
+      border-radius: 14px;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn:hover {
+      background: var(--blue-dark);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(59, 130, 246, 0.45);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid var(--yellow);
+      color: var(--yellow);
+    }
+
+    .btn.secondary:hover {
+      background: rgba(255, 215, 0, 0.12);
+      transform: translateY(-4px);
+    }
+
+    footer {
+      padding: 28px 20px;
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      background: #0a0a0a;
+      border-top: 1px solid #222;
+    }
+
+    @media (min-width: 640px) {
+      .button-container {
+        flex-direction: row;
+        justify-content: center;
+        gap: 28px;
+      }
+      
+      .btn {
+        min-width: 240px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="title">🚖 RideGo </h1>
+      <h1>Go Anywhere, Anytime</h1>
+      <p>Ride with trusted drivers • Affordable fares • Real-time tracking.</p>
+
+      <div class="button-container">
+        <a href="/register_user" class="btn">Sign up as User</a>
+        <a href="/register_driver" class="btn secondary">Become a Driver</a>
+        <a href="/book_ride" class="btn">Book a Ride Now</a>
+        <a href="/map" class="btn">View Ride Map</a>
+      </div>
+    </div>
+  </section>
+
+
+
+</body>
+</html>

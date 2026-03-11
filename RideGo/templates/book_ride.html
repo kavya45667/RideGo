@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Ride | Your App Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #000000;
+      --primary-dark: #0f172a;
+      --accent: #276ef1;       /* Uber blue */
+      --accent-hover: #1d4ed8;
+      --success: #16a34a;
+      --text: #0f172a;
+      --text-light: #64748b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --map-overlay: rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      background: var(--card);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      border: 1px solid var(--border);
+    }
+
+    .header {
+      position: relative;
+      height: 180px;
+      background: linear-gradient(to bottom, #1e293b, #0f172a);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1503387762-592deb58caa5?auto=format&fit=crop&q=80&w=800') center/cover;
+      opacity: 0.25;
+      mix-blend-mode: overlay;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .header p {
+      font-size: 15px;
+      opacity: 0.9;
+      position: relative;
+      z-index: 2;
+    }
+
+    .form-content {
+      padding: 32px 24px 40px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 16px;
+      background: #f9fafb;
+      transition: all 0.2s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(39, 110, 241, 0.12);
+      background: white;
+    }
+
+    .fare-group {
+      background: #f0f9ff;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 28px 0;
+      text-align: center;
+      border: 1px solid #bae6fd;
+    }
+
+    .fare-group h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .fare-group p {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(39, 110, 241, 0.25);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .terms {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 24px;
+      line-height: 1.5;
+    }
+
+    .terms a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .terms a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        min-height: 100vh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Book Your Ride</h1>
+    <p>Fast, safe, and affordable – let's go!</p>
+  </div>
+
+  <div class="form-content">
+    <form action="/add_ride" method="POST">
+
+      <div class="form-group">
+        <label for="user_id">User ID</label>
+        <input type="text" id="user_id" name="user_id" placeholder="e.g. USER-12345" required autofocus>
+      </div>
+
+      <div class="form-group">
+        <label for="driver_id">Driver ID (optional if auto-assign)</label>
+        <input type="text" id="driver_id" name="driver_id" placeholder="e.g. DRIVER-67890">
+      </div>
+
+      <div class="form-group">
+        <label for="pickup">Pickup Location</label>
+        <input type="text" id="pickup" name="pickup" placeholder="e.g. Benz Circle, Vijayawada" required>
+      </div>
+
+      <div class="form-group">
+        <label for="drop_location">Drop-off Location</label>
+        <input type="text" id="drop_location" name="drop_location" placeholder="e.g. MG Road, Guntur" required>
+      </div>
+
+      <div class="fare-group">
+        <h3 id="fareDisplay">₹ 0</h3>
+        <p>Estimated Fare</p>
+      </div>
+
+      <input type="number" name="fare" id="fare" step="0.01" placeholder="Enter estimated fare (₹)" required style="display:none;">
+
+      <button type="submit" class="btn">Confirm & Book Ride</button>
+
+      <div class="terms">
+        By booking, you agree to our <a href="#">Terms of Service</a> and <a href="#">Fare Policy</a>.<br>
+        Real-time tracking & safety features enabled.
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<script>
+  // Optional: live fare preview (for demo)
+  const fareInput = document.getElementById('fare');
+  const fareDisplay = document.getElementById('fareDisplay');
+
+  fareInput.addEventListener('input', () => {
+    const value = fareInput.value;
+    fareDisplay.textContent = value ? `₹ ${parseFloat(value).toFixed(2)}` : '₹ 0';
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Become a Driver | Your App Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #000000;
+      --primary-dark: #111111;
+      --accent: #276ef1;          /* Uber blue */
+      --accent-green: #00a856;    /* success / driver theme touch */
+      --text: #030303;
+      --text-secondary: #6b7280;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 440px;
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.09);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #000 0%, #1e293b 100%);
+      color: white;
+      padding: 36px 24px 44px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 15px;
+      opacity: 0.9;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .form-content {
+      padding: 36px 24px 32px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 9px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 15px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 16px;
+      background: #fff;
+      transition: all 0.2s ease;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(39, 110, 241, 0.12);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--accent-green);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-top: 16px;
+    }
+
+    .btn:hover {
+      background: #009c4a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 168, 86, 0.25);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .terms {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 28px;
+      line-height: 1.6;
+    }
+
+    .terms a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .terms a:hover {
+      text-decoration: underline;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        min-height: 100vh;
+      }
+      .header {
+        padding: 48px 20px 56px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Drive with us</h1>
+    <p>Earn money on your schedule • Be your own boss</p>
+  </div>
+
+  <div class="form-content">
+    <form action="/add_driver" method="POST">
+
+      <div class="form-group">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" placeholder="John Doe" required autofocus>
+      </div>
+
+      <div class="form-group">
+        <label for="vehicle">Vehicle (make & model)</label>
+        <input type="text" id="vehicle" name="vehicle" placeholder="e.g. Toyota Innova 2020" required>
+        <div class="note">Must be 4-door, < 8–10 years old (depending on city rules)</div>
+      </div>
+
+      <div class="form-group">
+        <label for="license_no">Driving License Number</label>
+        <input type="text" id="license_no" name="license_no" placeholder="DL-12-2021-123456" required>
+      </div>
+
+      <!-- Optional extra fields you can uncomment later -->
+      <!--
+      <div class="form-group">
+        <label for="phone">Mobile number</label>
+        <input type="tel" id="phone" name="phone" placeholder="98765 43210" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+      -->
+
+      <button type="submit" class="btn">Register & Continue</button>
+
+      <div class="terms">
+        By continuing, you agree to our <a href="#">Driver Terms</a> and <a href="#">Privacy Policy</a>.<br>
+        You must be at least 21 years old and have a valid license & vehicle documents.
+      </div>
+
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

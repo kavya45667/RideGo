@@ -1,0 +1,10 @@
+-- database: c:\uber\uber.db
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+SELECT * FROM drivers;
+CREATE TABLE users (
+  user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT,
+  email TEXT UNIQUE
+);
